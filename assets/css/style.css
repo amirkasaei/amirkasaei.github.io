@@ -409,6 +409,24 @@ section .container {
   color: rgb(0, 255, 255);
 }
 
+.about  h6, h5 {
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 5px 5px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.about  button[type=submit] {
+  background: rgb(0, 255, 255, 0.7);
+  border: 0;
+  padding: 10px 30px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
 .about-me .content ul {
   list-style: none;
   padding: 0;
@@ -425,6 +443,13 @@ section .container {
 }
 
 .about-me .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: rgb(0, 255, 255);
+  line-height: 0;
+}
+
+.about-me .content i {
   font-size: 16px;
   margin-right: 5px;
   color: rgb(0, 255, 255);
