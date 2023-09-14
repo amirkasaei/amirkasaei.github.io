@@ -721,6 +721,11 @@ section .container {
   transition: all ease-in-out 0.3s;
 }
 
+.services .icon-box:hover {
+  background: rgb(0, 255, 255, 0.7);
+  border-color: rgb(0, 255, 255);
+}
+
 .services .icon-box .icon {
   margin: 0 auto;
   width: 64px;
@@ -753,6 +758,10 @@ section .container {
   transform: translateZ(-1px);
 }
 
+.services .icon-box:hover .icon::before {
+  background: rgba(0, 0, 0, 0.85);
+}
+
 .services .icon-box h4 {
   font-weight: 700;
   margin-bottom: 15px;
@@ -769,21 +778,12 @@ section .container {
   margin-bottom: 0;
 }
 
-.services .icon-box:hover {
-  background: rgb(0, 255, 255, 0.7);
-  border-color: rgb(0, 255, 255);
-}
-
 .services .icon-box:hover .icon {
-  background: rgb(23, 24, 24);
+  background: rgb(255, 255, 255);
 }
 
 .services .icon-box:hover .icon i {
   color: #fff;
-}
-
-.services .icon-box:hover .icon::before {
-  background: #fff;
 }
 
 .services .icon-box:hover h4 a,
