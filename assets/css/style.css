@@ -1193,7 +1193,19 @@ section .container {
     transform: rotate(360deg);
   }
 }
-
+/*--------------------------------------------------------------
+# Honors & Awards
+--------------------------------------------------------------*/
+#HonorsAwards .about-me .content i {
+  font-size: 20px;
+  margin-right: 5px;
+  color: rgb(0, 255, 255);
+  line-height: 0;
+}
+#HonorsAwards .about-me .content strong,
+#HonorsAwards .about-me .content span {
+  font-size: 18px;
+}
 /*--------------------------------------------------------------
 # Credits
 --------------------------------------------------------------*/
