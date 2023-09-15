@@ -668,6 +668,10 @@ section .container {
   position: relative;
 }
 
+.resume .resume-item a i {
+  color: #fff;
+}
+
 .resume .resume-item h4 {
   line-height: 18px;
   font-size: 18px;
