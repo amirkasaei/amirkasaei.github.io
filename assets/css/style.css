@@ -409,6 +409,12 @@ section .container {
   color: rgb(0, 255, 255);
 }
 
+#about .about-me .content h4, h5 {
+  font-weight: 700;
+  font-size: 26px;
+  color: rgb(0, 255, 255);
+}
+
 .about  h6, h5 {
   font-size: 16px;
   background: rgba(255, 255, 255, 0.15);
