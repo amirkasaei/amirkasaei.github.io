@@ -7750,6 +7750,9 @@ readers do not read off random characters that represent icons */
 .fa-stubber:before {
   content: "\e5c7"; }
 
+.fa-google-scholar:before {
+  content: "\e63b"; }
+
 .fa-telegram:before {
   content: "\f2c6"; }
 

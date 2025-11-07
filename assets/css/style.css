@@ -1042,6 +1042,14 @@ section .container {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
+.google-scholar {
+  position: relative;
+  vertical-align: middle;
+  margin: 0 4px;       /* same spacing as other icons */
+  line-height: 1;      /* prevents misalignment */
+}
+
+
 .contact .info-box {
   color: #444444;
   padding: 20px;
