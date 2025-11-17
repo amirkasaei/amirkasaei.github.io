@@ -65,12 +65,13 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#About">About</a></li>
+          <li><a class="nav-link" href="#Publications">Publications</a></li>
           <li><a class="nav-link" href="#Education">Education</a></li>
-          <li><a class="nav-link" href="#HonorsAwards">Honors & Awards</a></li>
           <li><a class="nav-link" href="#Experiences">Experiences</a></li>
-          <li><a class="nav-link" href="#Projects">Projects</a></li>
+          <!-- <li><a class="nav-link" href="#Projects">Projects</a></li> -->
           <li><a class="nav-link" href="#Certificates">Certificates</a></li>
+          <li><a class="nav-link" href="#HonorsAwards">Honors & Awards</a></li>
           <li><a class="nav-link" href="#Skills">Skills</a></li>
           <li><a class="nav-link" href="https://raw.githubusercontent.com/amirkasaei/CV/main/CV.pdf">CV</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
@@ -104,7 +105,7 @@
   </header><!-- End Header -->
 
   <!-- ======= About Section ======= -->
-  <section id="about" class="about">
+  <section id="About" class="about">
 
     <!-- ======= About Me ======= -->
     <div class="about-me container">
@@ -164,7 +165,7 @@
 
       <div class="row">
         <div class="offset-lg-1 col-lg-10 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h4 class="mt-4">Research Interests</h4>
+          <h3 class="mt-4">Research Interests</h3>
           <div class="row">
             <div class="col-md-4">
               <ul>
@@ -327,6 +328,125 @@
       </div>
     </div><!-- End Honors & Awards -->
   </section><!-- End Honors & Awards Section -->
+
+  <!-- ======= Publications Section ======= -->
+  <section id="Publications" class="publications py-5">
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Publications</h2>
+
+        <div class="d-flex align-items-center mb-4">
+          <p class="mb-0">My Publications</p>
+          
+          <a href="https://scholar.google.com/citations?hl=en&user=mUVrJwYAAAAJ"
+            target="_blank" rel="noopener"
+            class="d-inline-flex align-items-center justify-content-center ms-2"
+            style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: transparent;
+                transition: 0.25s;
+                text-decoration: none;
+                margin-top: -12px;
+            "
+            onmouseover="
+                this.style.backgroundColor='rgba(0, 255, 255, 0.78)';
+                this.querySelector('img').src='assets/img/google-scholar-b.png';
+            "
+            onmouseout="
+                this.style.backgroundColor='transparent';
+                this.querySelector('img').src='assets/img/google-scholar-w.png';
+            "
+          >
+            <img src="assets/img/google-scholar-w.png"
+                alt="Google Scholar"
+                width="35" height="35"
+                style="transition: 0.2s;">
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-12 mx-auto text-start">
+
+        <!-- CARINOX -->
+        <div class="mb-4">
+          <h4 class="fw-bold mb-1">
+            <a href="https://arxiv.org/abs/2509.17458" target="_blank" rel="noopener" class="text-info text-decoration-none">
+              CARINOX: Inference-Time Scaling with Category-Aware Reward-Based Initial Noise Optimization and Exploration
+            </a>
+          </h4>
+          <p class="mb-1">
+            <em>Seyed Amir Kasaei, Ali Aghayari, Arash Marioriyad, Niki Sepasian, Shayan Baghayi Nejad,
+            MohammadAmin Fazli, Mahdieh Soleymani Baghshah, Mohammad Hossein Rohban</em>
+          </p>
+          <p class="small mb-1">
+            <strong>Under review at Transactions on Machine Learning Research (TMLR).</strong><br>
+            A reward-guided optimization framework for initial noise in diffusion models, combining discrete exploration and
+            continuous refinement for compositional alignment.
+          </p>
+          <small>
+            <span class="badge bg-dark">arXiv, 2025</span>
+            <a href="https://arxiv.org/abs/2509.17458" target="_blank" rel="noopener" class="text-white text-decoration-none">
+              <i class="bi bi-link-45deg"></i> arXiv:2509.17458
+            </a>
+          </small>
+        </div>
+
+        <!-- Evaluating the Evaluators -->
+        <div class="mb-4">
+          <h4 class="fw-bold mb-1">
+            <a href="https://arxiv.org/abs/2509.21227" target="_blank" rel="noopener" class="text-info text-decoration-none">
+              Evaluating the Evaluators: Metrics for Compositional Text-to-Image Generation
+            </a>
+          </h4>
+          <p class="mb-1">
+            <em>Seyed Amir Kasaei, Ali Aghayari, Arash Marioriyad, Niki Sepasian,
+            MohammadAmin Fazli, Mahdieh Soleymani Baghshah, Mohammad Hossein Rohban</em>
+          </p>
+          <p class="small mb-1">
+            <strong>NeurIPS 2025 Workshop GenProCC: Generative and Protective AI for Content Creation.</strong><br>
+            A correlation study of compositional text-to-image metrics, benchmarking category-specific and cross-category
+            agreement with human evaluations.
+          </p>
+          <small>
+            <span class="badge bg-dark">arXiv, 2025</span>
+            <a href="https://arxiv.org/abs/2509.21227" target="_blank" rel="noopener" class="text-white text-decoration-none">
+              <i class="bi bi-link-45deg"></i> arXiv:2509.21227
+            </a>
+          </small>
+        </div>
+
+        <!-- Hallucination as an Upper Bound -->
+        <div class="mb-4">
+          <h4 class="fw-bold mb-1">
+            <a href="https://arxiv.org/abs/2509.21257" target="_blank" rel="noopener" class="text-info text-decoration-none">
+              Hallucination as an Upper Bound: A New Perspective on Text-to-Image Evaluation
+            </a>
+          </h4>
+          <p class="mb-1">
+            <em>Seyed Amir Kasaei, Mohammad Hossein Rohban</em>
+          </p>
+          <p class="small mb-1">
+            <strong>NeurIPS 2025 Workshop GenProCC: Generative and Protective AI for Content Creation.</strong><br>
+            Interprets hallucination as an upper bound for assessing semantic faithfulness in text-to-image systems.
+          </p>
+          <small>
+            <span class="badge bg-dark">arXiv, 2025</span>
+            <a href="https://arxiv.org/abs/2509.21257" target="_blank" rel="noopener" class="text-white text-decoration-none">
+              <i class="bi bi-link-45deg"></i> arXiv:2509.21257
+            </a>
+          </small>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- End Publications Section -->
 
   <!-- ======= Skills Section ======= -->
   <section id="Skills" class="resume">  
@@ -601,7 +721,7 @@
   </section><!-- End Experiences Section -->
 
   <!-- ======= Projects Section ======= -->
-  <section id="Projects" class="resume">
+  <!-- <section id="Projects" class="resume">
     <div class="container">
 
       <div class="section-title">
@@ -649,7 +769,7 @@
             <h5>January 2024 - Present</h5>
             <ul>
               <li>We used a classification model to dtect 12 differnet types of renal cancer tumors</li>
-<!--               <li>In this project we used Learn2learn, Scikit-learn, PyTorch, Numpy, Matplotlib, seaborn.</li> -->
+              <li>In this project we used Learn2learn, Scikit-learn, PyTorch, Numpy, Matplotlib, seaborn.</li>
             </ul>     
           </div>
 
@@ -672,16 +792,16 @@
             </ul>     
           </div>
 
-<!--           <div class="resume-item">
+          <div class="resume-item">
             <h4>Multi-Class Weather Classification <a href="https://github.com/amirkasaei/Multi-Class-Weather-Classification" class="github" target="_blank"><i class="bi bi-github"></i></a></h4>
             <h5>September 2022 - Present</h5>
             <ul>
               <li>We implemented Simple CNN, Resnet And Inception Net for image classification.</li>
               <li>In this project we used Pandas, Scikit-learn, Keras, Tensorflow, Numpy, Matplotlib.</li>
             </ul>     
-          </div> -->
+          </div>
 
-<!--           <div class="resume-item">
+          <div class="resume-item">
             <h4>Multi-Lable Text Classification <a href="https://github.com/amirkasaei/Multi-Lable-Text-Classification" class="github" target="_blank"><i class="bi bi-github"></i></a></h4>
             <h5>September 2022 - Present</h5>
             <ul>
@@ -689,11 +809,11 @@
                 analysis of sentences.</li>
               <li>In this project we used Pandas, Scikit-learn, Keras, Tensorflow, Numpy, Hazm, NLTK, Matplotlib.</li>
             </ul>     
-          </div> -->
+          </div>
 
         </div>
     </div>
-  </section><!-- End Projects Section -->
+  </section>End Projects Section --
 
   <!-- ======= Certificates Section ======= -->
   <section id="Certificates" class="services">
