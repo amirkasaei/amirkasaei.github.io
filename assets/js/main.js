@@ -1,252 +1,145 @@
-/**
-* Template Name: Personal - v4.8.1
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-(function() {
+(function () {
   "use strict";
 
-  /**
-   * Easy selector helper function
-   */
-  const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
+  const nav = document.querySelector(".site-nav");
+  const toggle = document.querySelector(".nav-toggle");
+  const navLinks = document.querySelector(".nav-menu");
+  const themeToggle = document.querySelector(".theme-toggle");
+  const root = document.documentElement;
+  const anchors = document.querySelectorAll('.nav-menu a[href^="#"]');
+  const sections = document.querySelectorAll("header[id], section[id]");
+
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    themeToggle?.setAttribute(
+      "aria-label",
+      theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+    );
+  }
+
+  themeToggle?.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(next);
+  });
+
+  applyTheme(root.getAttribute("data-theme") || "dark");
+
+  let fillFrame = null;
+
+  function easeOutQuart(t) {
+    return 1 - Math.pow(1 - t, 4);
+  }
+
+  function updateCenterFill() {
+    fillFrame = null;
+
+    const header = document.getElementById("header");
+    if (!header) return;
+
+    const fadeStart = header.offsetHeight * 0.76;
+    const fadeEnd = header.offsetHeight * 0.97;
+    const fadeRange = Math.max(1, fadeEnd - fadeStart);
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const pastHero = window.scrollY >= fadeEnd;
+
+    if (reducedMotion) {
+      root.style.setProperty("--center-fill-opacity", pastHero ? "1" : "0");
     } else {
-      return document.querySelector(el)
+      const linear = Math.min(1, Math.max(0, (window.scrollY - fadeStart) / fadeRange));
+      const fillProgress = easeOutQuart(linear);
+      root.style.setProperty("--center-fill-opacity", fillProgress.toFixed(4));
     }
+
+    document.body.classList.toggle("past-hero", pastHero);
   }
 
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
-      } else {
-        selectEl.addEventListener(type, listener)
-      }
-    }
+  function scheduleCenterFill() {
+    if (fillFrame !== null) return;
+    fillFrame = requestAnimationFrame(updateCenterFill);
   }
 
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
+  function onScroll() {
+    nav?.classList.toggle("scrolled", window.scrollY > 50);
+
+    let current = "header";
+    sections.forEach((sec) => {
+      if (window.scrollY >= sec.offsetTop - 120) {
+        current = sec.id;
+      }
+    });
+
+    anchors.forEach((a) => {
+      a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+    });
+
+    scheduleCenterFill();
   }
 
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('#navbar').classList.toggle('navbar-mobile')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '#navbar .nav-link', function(e) {
-    let section = select(this.hash)
-    if (section) {
-      e.preventDefault()
+  const mobileNavQuery = matchMedia("(max-width: 1100px)");
 
-      let navbar = select('#navbar')
-      let header = select('#header')
-      let sections = select('section', true)
-      let navlinks = select('#navbar .nav-link', true)
+  function closeMobileNav() {
+    navLinks?.classList.remove("open");
+    toggle?.setAttribute("aria-expanded", "false");
+  }
 
-      navlinks.forEach((item) => {
-        item.classList.remove('active')
-      })
+  mobileNavQuery.addEventListener("change", (e) => {
+    if (!e.matches) closeMobileNav();
+  });
 
-      this.classList.add('active')
+  toggle?.addEventListener("click", () => {
+    navLinks?.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", navLinks?.classList.contains("open"));
+  });
 
-      if (navbar.classList.contains('navbar-mobile')) {
-        navbar.classList.remove('navbar-mobile')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
+  navLinks?.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", closeMobileNav);
+  });
 
-      if (this.hash == '#header') {
-        header.classList.remove('header-top')
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        return;
-      }
-
-      if (!header.classList.contains('header-top')) {
-        header.classList.add('header-top')
-        setTimeout(function() {
-          sections.forEach((item) => {
-            item.classList.remove('section-show')
-          })
-          section.classList.add('section-show')
-
-        }, 350);
-      } else {
-        sections.forEach((item) => {
-          item.classList.remove('section-show')
-        })
-        section.classList.add('section-show')
-      }
-
-      scrollto(this.hash)
-    }
-  }, true)
-
-  /**
-   * Activate/show sections on load with hash links
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      let initial_nav = select(window.location.hash)
-
-      if (initial_nav) {
-        let header = select('#header')
-        let navlinks = select('#navbar .nav-link', true)
-
-        header.classList.add('header-top')
-
-        navlinks.forEach((item) => {
-          if (item.getAttribute('href') == window.location.hash) {
-            item.classList.add('active')
-          } else {
-            item.classList.remove('active')
+  if ("IntersectionObserver" in window) {
+    const revealObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObs.unobserve(entry.target);
           }
-        })
-
-        setTimeout(function() {
-          initial_nav.classList.add('section-show')
-        }, 350);
-
-        scrollto(window.location.hash)
-      }
-    }
-  });
-
-  /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
         });
-      }
-    })
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    document.querySelectorAll("section .container").forEach((el) => revealObs.observe(el));
+  } else {
+    document.querySelectorAll("section .container").forEach((el) => el.classList.add("visible"));
   }
 
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
+  document.querySelectorAll("[data-count]").forEach((el) => {
+    if (!("IntersectionObserver" in window)) {
+      el.textContent = el.dataset.count;
+      return;
+    }
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const target = +el.dataset.count;
+          const start = performance.now();
+          const tick = (now) => {
+            const p = Math.min((now - start) / 1200, 1);
+            el.textContent = Math.floor(p * target);
+            if (p < 1) requestAnimationFrame(tick);
+            else el.textContent = target;
+          };
+          requestAnimationFrame(tick);
+          obs.unobserve(el);
+        });
       },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
+      { threshold: 0.4 }
+    );
+    obs.observe(el);
   });
-
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-      });
-
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-      }, true);
-    }
-
-  });
-
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
-
-  /**
-   * Initiate portfolio details lightbox 
-   */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
-
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Initiate Pure Counter 
-   */
-  new PureCounter();
-
-})()
+})();
