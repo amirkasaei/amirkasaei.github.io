@@ -81,9 +81,10 @@
 
   const mobileNavQuery = matchMedia("(max-width: 1100px)");
 
-  function closeMobileNav() {
+  function closeMobileNav({ restoreFocus = false } = {}) {
     navLinks?.classList.remove("open");
     toggle?.setAttribute("aria-expanded", "false");
+    if (restoreFocus) toggle?.focus();
   }
 
   mobileNavQuery.addEventListener("change", (e) => {
@@ -96,10 +97,25 @@
   });
 
   navLinks?.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", closeMobileNav);
+    a.addEventListener("click", () => closeMobileNav());
   });
 
-  if ("IntersectionObserver" in window) {
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && navLinks?.classList.contains("open")) {
+      closeMobileNav({ restoreFocus: true });
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (navLinks?.classList.contains("open") && !nav?.contains(event.target)) {
+      closeMobileNav();
+    }
+  });
+
+  const revealTargets = document.querySelectorAll("section .container");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if ("IntersectionObserver" in window && !reducedMotion) {
     const revealObs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -112,21 +128,26 @@
       { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
 
-    document.querySelectorAll("section .container").forEach((el) => revealObs.observe(el));
+    root.classList.add("reveal-enabled");
+    revealTargets.forEach((el) => revealObs.observe(el));
   } else {
-    document.querySelectorAll("section .container").forEach((el) => el.classList.add("visible"));
+    revealTargets.forEach((el) => el.classList.add("visible"));
   }
 
-  document.querySelectorAll("[data-count]").forEach((el) => {
+  document.querySelectorAll("[data-count], [data-count-selector]").forEach((el) => {
+    const selector = el.dataset.countSelector;
+    const target = selector
+      ? document.querySelectorAll(selector).length
+      : Number(el.dataset.count);
+
     if (!("IntersectionObserver" in window)) {
-      el.textContent = el.dataset.count;
+      el.textContent = target;
       return;
     }
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          const target = +el.dataset.count;
           const start = performance.now();
           const tick = (now) => {
             const p = Math.min((now - start) / 1200, 1);

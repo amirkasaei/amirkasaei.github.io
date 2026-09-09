@@ -10,10 +10,57 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amir Kasaei | Home Page</title>
+  <title>Amir Kasaei | Machine Learning Researcher</title>
   <meta name="author" content="Amir Kasaei">
   <meta name="description" content="Amir Kasaei, Machine Learning Researcher at RIML Lab, interested in Deep Learning, Computer Vision, Compositional Generation, Diffusion Models, and Visual Reasoning.">
-  <meta name="keywords" content="Amir Kasaei, amirkasaei, machine learning, deep learning, computer vision, compositional generation, diffusion models, RIML Lab, Sharif University">
+  <link rel="canonical" href="https://amirkasaei.com/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Amir Kasaei | Machine Learning Researcher">
+  <meta property="og:description" content="Machine learning researcher working on compositional visual generation, diffusion models, and visual reasoning.">
+  <meta property="og:url" content="https://amirkasaei.com/">
+  <meta property="og:image" content="https://amirkasaei.com/assets/img/profile.jpg">
+  <meta property="og:image:alt" content="Portrait of Amir Kasaei">
+  <meta property="og:site_name" content="Amir Kasaei">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Amir Kasaei | Machine Learning Researcher">
+  <meta name="twitter:description" content="Machine learning researcher working on compositional visual generation, diffusion models, and visual reasoning.">
+  <meta name="twitter:image" content="https://amirkasaei.com/assets/img/profile.jpg">
+  <meta name="twitter:image:alt" content="Portrait of Amir Kasaei">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "url": "https://amirkasaei.com/",
+      "mainEntity": {
+        "@type": "Person",
+        "@id": "https://amirkasaei.com/#person",
+        "name": "Amir Kasaei",
+        "url": "https://amirkasaei.com/",
+        "image": "https://amirkasaei.com/assets/img/profile.jpg",
+        "jobTitle": "Machine Learning Researcher",
+        "description": "Machine learning researcher working on compositional visual generation, diffusion models, and visual reasoning.",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "RIML Lab, Sharif University of Technology"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Guilan"
+        },
+        "sameAs": [
+          "https://scholar.google.com/citations?hl=en&user=mUVrJwYAAAAJ",
+          "https://www.linkedin.com/in/amirkasaei",
+          "https://github.com/amirkasaei",
+          "https://www.twitter.com/KasaeiAmir",
+          "https://www.instagram.com/amirkasaei/"
+        ]
+      }
+    }
+  </script>
 
   <link rel="icon" href="https://amirkasaei.com/assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,7 +121,7 @@
   <nav class="site-nav" aria-label="Main navigation">
     <div class="container">
       <a href="#header" class="nav-brand">Amir <span>Kasaei</span></a>
-      <ul class="nav-menu">
+      <ul class="nav-menu" id="nav-menu">
         <li><a href="#header" class="active">Home</a></li>
         <li><a href="#About">About</a></li>
         <li><a href="#Publications">Publications</a></li>
@@ -83,6 +130,7 @@
         <li><a href="#Certificates">Certificates</a></li>
         <li><a href="#HonorsAwards">Honors &amp; Awards</a></li>
         <li><a href="#Skills">Skills</a></li>
+        <li><a href="https://raw.githubusercontent.com/amirkasaei/CV/main/CV.pdf" target="_blank" rel="noopener">CV</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
@@ -90,11 +138,12 @@
           <i class="bi bi-sun-fill theme-icon theme-icon--light" aria-hidden="true"></i>
           <i class="bi bi-moon-fill theme-icon theme-icon--dark" aria-hidden="true"></i>
         </button>
-        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><i class="bi bi-list"></i></button>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu"><i class="bi bi-list"></i></button>
       </div>
     </div>
   </nav>
 
+  <main>
   <header id="header">
     <div class="hero-bg" aria-hidden="true">
       <div class="hero-focus"></div>
@@ -174,22 +223,22 @@
         <div class="counts-row">
           <div class="count-box">
             <i class="bi bi-journal-richtext"></i>
-            <span class="num" data-count="7">0</span>
+            <span class="num" data-count-selector="#Publications .pub-item">0</span>
             <p>Publications</p>
           </div>
           <div class="count-box">
             <i class="bi bi-award"></i>
-            <span class="num" data-count="5">0</span>
+            <span class="num" data-count-selector="#Certificates .cert-box">0</span>
             <p>Certificates</p>
           </div>
           <div class="count-box">
             <i class="bi bi-wrench"></i>
-            <span class="num" data-count="22">0</span>
+            <span class="num" data-count-selector="#Skills .skill-tag">0</span>
             <p>Skills</p>
           </div>
           <div class="count-box">
             <i class="bi bi-briefcase"></i>
-            <span class="num" data-count="6">0</span>
+            <span class="num" data-count-selector="#Experiences .resume-item">0</span>
             <p>Experiences</p>
           </div>
         </div>
@@ -210,7 +259,7 @@
 
       <div class="pub-list">
         <article class="pub-item">
-          <h4><a href="https://arxiv.org/abs/2509.17458" target="_blank" rel="noopener">CARINOX: Inference-Time Scaling with Category-Aware Reward-Based Initial Noise Optimization and Exploration</a></h4>
+          <h3><a href="https://arxiv.org/abs/2509.17458" target="_blank" rel="noopener">CARINOX: Inference-Time Scaling with Category-Aware Reward-Based Initial Noise Optimization and Exploration</a></h3>
           <p class="authors"><u>Amir Kasaei</u>, Ali Aghayari, Arash Marioriyad, Niki Sepasian, Shayan Baghayi Nejad, Mohammad Amin Fazli, Mahdieh Soleymani Baghshah, Mohammad Hossein Rohban</p>
           <p class="venue"><strong>Transactions on Machine Learning Research (TMLR) 2026</strong></p>
           <p class="abstract">A reward-guided optimization framework for initial noise in diffusion models, combining discrete exploration and continuous refinement for compositional alignment.</p>
@@ -221,7 +270,7 @@
         </article>
 
         <article class="pub-item">
-          <h4><a href="https://arxiv.org/abs/2509.21227" target="_blank" rel="noopener">Evaluating the Evaluators: Metrics for Compositional Text-to-Image Generation</a></h4>
+          <h3><a href="https://arxiv.org/abs/2509.21227" target="_blank" rel="noopener">Evaluating the Evaluators: Metrics for Compositional Text-to-Image Generation</a></h3>
           <p class="authors"><u>Amir Kasaei</u>, Ali Aghayari, Arash Marioriyad, Niki Sepasian, Mohammad Amin Fazli, Mahdieh Soleymani Baghshah, Mohammad Hossein Rohban</p>
           <p class="venue"><strong>NeurIPS 2025 Workshop: Generative and Protective AI for Content Creation (GenProCC)</strong></p>
           <p class="abstract">A correlation study of compositional text-to-image metrics, benchmarking category-specific and cross-category agreement with human evaluations.</p>
@@ -232,7 +281,17 @@
         </article>
 
         <article class="pub-item">
-          <h4><a href="https://arxiv.org/abs/2604.01764" target="_blank" rel="noopener">Hidden Meanings in Plain Sight: RebusBench for Evaluating Cognitive Visual Reasoning</a></h4>
+          <h3><a href="https://arxiv.org/abs/2509.21257" target="_blank" rel="noopener">Hallucination as an Upper Bound: A New Perspective on Text-to-Image Evaluation</a></h3>
+          <p class="authors"><u>Amir Kasaei</u>, Mohammad Hossein Rohban</p>
+          <p class="venue"><strong>NeurIPS 2025 Workshop: Generative and Protective AI for Content Creation (GenProCC)</strong></p>
+          <p class="abstract">A taxonomy of attribute, relation, and object hallucinations in text-to-image models, framing hallucination as an upper bound for richer evaluation.</p>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2509.21257" target="_blank" rel="noopener"><i class="ai ai-arxiv"></i> arXiv:2509.21257</a>
+          </div>
+        </article>
+
+        <article class="pub-item">
+          <h3><a href="https://arxiv.org/abs/2604.01764" target="_blank" rel="noopener">Hidden Meanings in Plain Sight: RebusBench for Evaluating Cognitive Visual Reasoning</a></h3>
           <p class="authors"><u>Amir Kasaei</u>, Arash Marioriyad, Mahbod Khaleti, Mohammad Amin Fazli, Mahdieh Soleymani Baghshah, Mohammad Hossein Rohban</p>
           <p class="venue"><strong>ICLR 2026 Workshop: From Human Cognition to AI Reasoning (HCAIR)</strong></p>
           <p class="abstract">RebusBench is a benchmark of 1,164 rebus puzzles for evaluating abstract cognitive visual reasoning in LVLMs.</p>
@@ -243,7 +302,7 @@
         </article>
 
         <article class="pub-item">
-          <h4><a href="https://arxiv.org/abs/2604.04575" target="_blank" rel="noopener">Erasure or Erosion? Evaluating Compositional Degradation in Unlearned Text-To-Image Diffusion Models</a></h4>
+          <h3><a href="https://arxiv.org/abs/2604.04575" target="_blank" rel="noopener">Erasure or Erosion? Evaluating Compositional Degradation in Unlearned Text-To-Image Diffusion Models</a></h3>
           <p class="authors">Arian Komaei Koma, <u>Amir Kasaei</u>, Ali Aghayari, AmirMahdi Sadeghzadeh, Mohammad Hossein Rohban</p>
           <p class="venue"><strong>CVPR 2026 Workshop: Machine Unlearning for Computer Vision (MUC)</strong></p>
           <p class="abstract">Evaluating unlearned diffusion models through the lens of compositionality.</p>
@@ -253,14 +312,14 @@
         </article>
 
         <article class="pub-item">
-          <h4>Weeding Out Bad Seeds: Noise-Robust Unlearning for Text-to-Image Diffusion Models</h4>
+          <h3>Weeding Out Bad Seeds: Noise-Robust Unlearning for Text-to-Image Diffusion Models</h3>
           <p class="authors">Arian Komaei Koma, <u>Amir Kasaei</u>, Ali Aghayari, Aida Aryafar, Matin Ghiasi, Amirhossein Souri, Mohammad Mosayyebi, Amir Mahdi Sadeghzadeh, Mohammad Hossein Rohban</p>
           <p class="venue"><strong>Under review at NeurIPS 2026</strong></p>
           <p class="abstract">Adaptive noise sampling for unlearning in text-to-image diffusion models.</p>
         </article>
 
         <article class="pub-item">
-          <h4><a href="https://arxiv.org/abs/2605.26332" target="_blank" rel="noopener">Erased but Exploitable: Black-box Embedding-Aware Prompting Against Unlearned Text-to-Image Diffusion Models</a></h4>
+          <h3><a href="https://arxiv.org/abs/2605.26332" target="_blank" rel="noopener">Erased but Exploitable: Black-box Embedding-Aware Prompting Against Unlearned Text-to-Image Diffusion Models</a></h3>
           <p class="authors">Arian Komaei Koma, <u>Amir Kasaei</u>, Amir Mahdi Sadeghzadeh, Mohammad Hossein Rohban</p>
           <p class="venue"><strong>Under review at TMLR</strong></p>
           <p class="abstract">A black-box embedding-aware adversarial prompting framework for attacking unlearned text-to-image diffusion models.</p>
@@ -268,6 +327,7 @@
             <a href="https://arxiv.org/abs/2605.26332" target="_blank" rel="noopener"><i class="ai ai-arxiv"></i> arXiv:2605.26332</a>
           </div>
         </article>
+
       </div>
     </div>
   </section>
@@ -310,14 +370,14 @@
           <h3>Research Assistant</h3>
           <div class="resume-item">
             <h4>Research Assistant</h4>
-            <h5>September 2023 – Present</h5>
+            <p class="resume-date"><time datetime="2023-09">September 2023</time> – Present</p>
             <p>RIML Lab (Sharif University of Technology)</p>
             <p>Supervisor: <a href="https://scholar.google.com/citations?hl=en&user=pRyJ6FkAAAAJ" target="_blank" rel="noopener">Dr. M. H. Rohban</a></p>
             <p><em>Focus:</em> Compositional Generation · T2I Diffusion Models · Visual Reasoning · Multimodal Models</p>
           </div>
           <div class="resume-item">
             <h4>Research Assistant</h4>
-            <h5>September 2022 – August 2023</h5>
+            <p class="resume-date"><time datetime="2022-09">September 2022</time> – <time datetime="2023-08">August 2023</time></p>
             <p>University of Guilan</p>
             <p>Supervisor: <a href="https://scholar.google.com/citations?user=WGH3eIsAAAAJ&hl=en" target="_blank" rel="noopener">Dr. S. A. Mirroshandel</a></p>
             <p><em>Focus:</em> Medical Image Analysis</p>
@@ -328,27 +388,27 @@
           <h3>Teaching Assistant</h3>
           <div class="resume-item">
             <h4>Head Teaching Assistant of Data Mining</h4>
-            <h5>September 2025 – January 2026</h5>
+            <p class="resume-date"><time datetime="2025-09">September 2025</time> – <time datetime="2026-01">January 2026</time></p>
             <p><em>Instructor:</em> Dr. Mohammad Amin Fazli</p>
             <p>Led course coordination, quiz design, and grading; assisted with lectures, assignments, and student support.</p>
           </div>
           <div class="resume-item">
             <h4>Teaching Assistant of System 2 in AI</h4>
-            <h5>February 2025 – June 2025</h5>
+            <p class="resume-date"><time datetime="2025-02">February 2025</time> – <time datetime="2025-06">June 2025</time></p>
             <p><em>Instructors:</em> Dr. M. H. Rohban, Dr. M. Soleymani</p>
             <p><em>Topics:</em> Compositional Generation, Inference-time scaling, Test-time adaptation</p>
             <p>Material preparation and grading.</p>
           </div>
           <div class="resume-item">
             <h4>Teaching Assistant of Deep Learning</h4>
-            <h5>February 2025 – June 2025</h5>
+            <p class="resume-date"><time datetime="2025-02">February 2025</time> – <time datetime="2025-06">June 2025</time></p>
             <p><em>Instructor:</em> Dr. M. Soleymani</p>
             <p><em>Topics:</em> Generative Models, VAE, GAN, Diffusion</p>
             <p>Quiz and exam design, and grading.</p>
           </div>
           <div class="resume-item">
             <h4>Teaching Assistant of Intelligent Analysis of Biomedical Images</h4>
-            <h5>September 2024 – January 2025</h5>
+            <p class="resume-date"><time datetime="2024-09">September 2024</time> – <time datetime="2025-01">January 2025</time></p>
             <p><em>Instructor:</em> Dr. M. H. Rohban</p>
             <p><em>Topics:</em> Diffusion and Generative Models</p>
             <p>Supported exercises, exam/quiz design, and grading.</p>
@@ -367,33 +427,33 @@
       <div class="cert-row">
         <div class="cert-box">
           <div class="cert-mark cert-mark--ielts" aria-hidden="true">IELTS</div>
-          <h4>IELTS</h4>
-          <h5>IDP</h5>
+          <h3>IELTS</h3>
+          <p class="cert-issuer">IDP</p>
           <p>Dec 2025 · Overall 7.5</p>
           <p class="cert-detail">Listening 9 · Reading 7.0 · Writing 6.5 · Speaking 7.0</p>
         </div>
         <div class="cert-box">
           <div class="cert-mark cert-mark--coursera" aria-hidden="true"><i class="ai ai-coursera"></i></div>
-          <h4><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/LGYU3FW9F9AX" target="_blank" rel="noopener">Deep Learning Specialization</a></h4>
-          <h5>DeepLearning.AI</h5>
+          <h3><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/LGYU3FW9F9AX" target="_blank" rel="noopener">Deep Learning Specialization</a></h3>
+          <p class="cert-issuer">DeepLearning.AI</p>
           <p>Instructor: Andrew Ng <br> Aug 2022</p>
         </div>
         <div class="cert-box">
           <div class="cert-mark cert-mark--coursera" aria-hidden="true"><i class="ai ai-coursera"></i></div>
-          <h4><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/JFDSEZCH8ECY" target="_blank" rel="noopener">Machine Learning Specialization</a></h4>
-          <h5>DeepLearning.AI</h5>
+          <h3><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/JFDSEZCH8ECY" target="_blank" rel="noopener">Machine Learning Specialization</a></h3>
+          <p class="cert-issuer">DeepLearning.AI</p>
           <p>Instructor: Andrew Ng <br> Sep 2022</p>
         </div>
         <div class="cert-box">
           <div class="cert-mark cert-mark--rl" aria-hidden="true"><i class="ai ai-coursera"></i></div>
-          <h4><a href="https://www.coursera.org/account/accomplishments/certificate/L2QGQYLFC8DL" target="_blank" rel="noopener">Fundamentals of Reinforcement Learning</a></h4>
-          <h5>University of Alberta</h5>
+          <h3><a href="https://www.coursera.org/account/accomplishments/certificate/L2QGQYLFC8DL" target="_blank" rel="noopener">Fundamentals of Reinforcement Learning</a></h3>
+          <p class="cert-issuer">University of Alberta</p>
           <p>Aug 2022</p>
         </div>
         <div class="cert-box">
           <div class="cert-mark cert-mark--google" aria-hidden="true"><i class="fa-brands fa-google"></i></div>
-          <h4><a href="https://www.coursera.org/account/accomplishments/certificate/V9RF53KNW4TS" target="_blank" rel="noopener">Crash Course on Python</a></h4>
-          <h5>Google</h5>
+          <h3><a href="https://www.coursera.org/account/accomplishments/certificate/V9RF53KNW4TS" target="_blank" rel="noopener">Crash Course on Python</a></h3>
+          <p class="cert-issuer">Google</p>
           <p>Instructor: Christine Rafla <br> Aug 2022</p>
         </div>
       </div>
@@ -410,16 +470,16 @@
         <div class="award">
           <i class="bi bi-circle-fill"></i>
           <div>
-            <h4>Exceptional Talent Admission at Sharif University of Technology</h4>
-            <h6>Sep 2023</h6>
+            <h3>Exceptional Talent Admission at Sharif University of Technology</h3>
+            <p class="award-date"><time datetime="2023-09">Sep 2023</time></p>
             <p>Direct admission to M.Sc. in Computer Engineering as an exceptional talented student.</p>
           </div>
         </div>
         <div class="award">
           <i class="bi bi-circle-fill"></i>
           <div>
-            <h4>Ranked 1st among B.Sc. Computer Engineering Students</h4>
-            <h6>Sep 2019 – Aug 2023</h6>
+            <h3>Ranked 1st among B.Sc. Computer Engineering Students</h3>
+            <p class="award-date"><time datetime="2019-09">Sep 2019</time> – <time datetime="2023-08">Aug 2023</time></p>
             <p>University of Guilan · Highest GPA among all undergraduate Computer Engineering students · <a href="https://drive.google.com/file/d/1RfuN4xRnWvJ53gFADrlBrSxIEHqgPVWS/view?usp=sharing" target="_blank" rel="noopener">Certificate (Persian)</a></p>
           </div>
         </div>
@@ -513,9 +573,11 @@
     </div>
   </section>
 
-  <div class="credits">
+  </main>
+
+  <footer class="credits">
     Designed by <a href="https://amirkasaei.com">Amir Kasaei</a>
-  </div>
+  </footer>
 
 
   <script src="assets/js/main.js"></script>
